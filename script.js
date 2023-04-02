@@ -3,7 +3,18 @@ let playerChoice = "";
 let playerScore = 0;
 let computerScore = 0;
 
-playerChoice = prompt("Please choose: rock, paper or scissors?");
+
+function game() {
+	for(let i = 0; i < 5; i++) {
+		playerChoice = prompt("Please choose: rock, paper or scissors?");
+		computerChoice = getComputerChoice();
+		let result = evaluateMatch(playerChoice, computerChoice);
+		if (result.search("won") > -1)	playerScore++;
+		else if (result.search("lost") > -1) computerScore++;
+		console.log(`${result} The score is ${playerScore}:${computerScore}.`);
+
+	}
+}
 
 function getComputerChoice() {
 	switch(Math.floor(Math.random()*3)) {
