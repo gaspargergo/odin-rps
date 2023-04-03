@@ -8,11 +8,14 @@ function game() {
 	playerScore = 0;
 	computerScore = 0;
 	for(let i = 0; i < 5; i++) {
-		playerChoice = prompt("Please choose: rock, paper or scissors?");
+		playerChoice = prompt("Please choose: rock, paper or scissors?").toLowerCase();
 		computerChoice = getComputerChoice();
 		let result = evaluateMatch(playerChoice, computerChoice);
 		console.log(`${result} The score is ${playerScore}:${computerScore}.`);
 	}
+	if (playerScore === computerScore) "Tie! Close one!";
+	else if (playerScore > computerScore) "You won! Good game!";
+	else "You lost! Better luck next time!";
 }
 
 function getComputerChoice() {
