@@ -5,12 +5,12 @@ let computerScore = 0;
 
 
 function game() {
+	playerScore = 0;
+	computerScore = 0;
 	for(let i = 0; i < 5; i++) {
 		playerChoice = prompt("Please choose: rock, paper or scissors?");
 		computerChoice = getComputerChoice();
 		let result = evaluateMatch(playerChoice, computerChoice);
-		if (result.search("won") > -1)	playerScore++;
-		else if (result.search("lost") > -1) computerScore++;
 		console.log(`${result} The score is ${playerScore}:${computerScore}.`);
 	}
 }
@@ -36,9 +36,11 @@ function evaluateMatch (playerChoice, computerChoice) {
 	else if (playerChoice === "rock" && computerChoice === "scissors"|| 
 						playerChoice === "paper" && computerChoice === "rock" ||
 						playerChoice === "scissors" && computerChoice === "paper") {
+		playerScore++;
 		return `You won, ${playerChoice} beats ${computerChoice}!`;
 	}
 	else {
+		computerScore++;
 		return `You lost, ${computerChoice} beats ${playerChoice}!`;
 	}
 }
