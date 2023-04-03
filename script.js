@@ -9,7 +9,10 @@ function game() {
 	playerScore = 0;
 	computerScore = 0;
 	for(let i = 0; i < 5; i++) {
-		playerChoice = prompt("Please choose: rock, paper or scissors?").toLowerCase();
+		playerChoice = ""; 
+		while (playerChoice != "rock" && playerChoice != "paper" && playerChoice != "scissors") {
+			playerChoice = prompt("Please choose: rock, paper or scissors?").toLowerCase();
+		}
 		computerChoice = getComputerChoice();
 		let result = evaluateMatch(playerChoice, computerChoice);
 		console.log(`${result} The score is ${playerScore}:${computerScore}.`);
