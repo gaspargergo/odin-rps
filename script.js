@@ -3,6 +3,7 @@ let playerChoice = "";
 let playerScore = 0;
 let computerScore = 0;
 
+game();
 
 function game() {
 	playerScore = 0;
@@ -13,9 +14,9 @@ function game() {
 		let result = evaluateMatch(playerChoice, computerChoice);
 		console.log(`${result} The score is ${playerScore}:${computerScore}.`);
 	}
-	if (playerScore === computerScore) "Tie! Close one!";
-	else if (playerScore > computerScore) "You won! Good game!";
-	else "You lost! Better luck next time!";
+	if (playerScore === computerScore) console.log("Tie! Close one!");
+	else if (playerScore > computerScore) console.log("You won! Good game!");
+	else console.log("You lost! Better luck next time!");
 }
 
 function getComputerChoice() {
